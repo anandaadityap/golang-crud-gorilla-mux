@@ -7,12 +7,8 @@ import (
 )
 
 type Config struct {
-	PORT        string
-	DB_HOST     string
-	DB_USER     string
-	DB_PASSWORD string
-	DB_DATABASE string
-	DB_PORT     string
+	PORT          string
+	DB_CONNECTION string
 }
 
 var ENV Config

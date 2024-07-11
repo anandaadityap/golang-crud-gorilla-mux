@@ -13,8 +13,9 @@ import (
 var DB *gorm.DB
 
 func ConnectDB() {
-	connection := fmt.Sprintf("%v:%v@tcp(%v:%v)/%v?parseTime=true&loc=Asia%vJakarta", ENV.DB_USER, ENV.DB_PASSWORD, ENV.DB_HOST, ENV.DB_PORT, ENV.DB_DATABASE, "%2f")
-	db, err := gorm.Open(mysql.Open(connection), &gorm.Config{})
+	connStr := fmt.Sprintf("%v", ENV.DB_CONNECTION)
+
+	db, err := gorm.Open(mysql.Open(connStr), &gorm.Config{})
 
 	if err != nil {
 		panic("Failed to connect database")
